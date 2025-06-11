@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Witaj w BeeTeamie! | Onboarding #teamperfo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .highlight {
+            background-color: #ffeb03;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <div class="container mx-auto max-w-4xl my-8 p-6 md:p-8 bg-white rounded-lg shadow-xl">
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-[#6c36fe]">Fajnie mieć Cię w naszym BeeTeamie!</h1>
+            <p class="mt-4 text-lg md:text-xl text-gray-600">Oto kilka informacji o #teamperfo, które musisz wiedzieć na start.</p>
+        </header>
+
+        <!-- Sekcja: Consent Mode -->
+        <section class="mb-12 p-6 border border-gray-200 rounded-lg bg-gray-50">
+            <h2 class="text-3xl font-semibold text-[#6c36fe] mb-6 pb-2 border-b-2 border-gray-200">Consent Mode i Cookiebot – prosto i konkretnie</h2>
+            
+            <div class="space-y-4">
+                <h3 class="text-xl font-bold">Co to jest Consent Mode?</h3>
+                <p>To mechanizm od Google, który dostosowuje działanie tagów (np. Google Ads, Google Analytics) do decyzji użytkownika o cookies. Jeśli użytkownik <span class="highlight">zaakceptuje cookies</span>, tagi działają normalnie. Jeśli <span class="highlight">odmówi zgody</span>, tagi działają w trybie ograniczonym, wysyłając anonimowe pingi.</p>
+
+                <h3 class="text-xl font-bold">Dlaczego trzeba to wdrożyć?</h3>
+                <ul class="list-disc list-inside pl-4 space-y-2">
+                    <li><strong>Wymóg prawny:</strong> RODO wymaga uzyskania zgody.</li>
+                    <li><strong>Wymóg Google:</strong> Od marca 2024 r. brak Consent Mode v2 może powodować utratę danych.</li>
+                    <li><strong>Lepsze dane:</strong> Performance marketing bez danych to wróżenie z fusów.</li>
+                </ul>
+
+                <h3 class="text-xl font-bold">Z jakiego narzędzia korzystamy?</h3>
+                <p>W naszej agencji korzystamy z <strong>Cookiebota</strong> – platformy, która pozwala łatwo połączyć się z Consent Mode, działa z popularnymi CMS-ami i umożliwia ustawienie popupu na cały ekran.</p>
+
+                <h3 class="text-xl font-bold">Schemat działania Consent Mode z Cookiebotem:</h3>
+                <div class="text-center mt-6">
+                    <div class="flow-step bg-white border-2 border-[#6c36fe] rounded-lg p-4 font-semibold inline-block">[User wchodzi na stronę]</div>
+                    <div class="text-2xl text-[#6c36fe] my-2">⬇️</div>
+                    <div class="flow-step bg-white border-2 border-[#6c36fe] rounded-lg p-4 font-semibold inline-block">[Pojawia się pop-up Cookiebota]</div>
+                    <div class="text-2xl text-[#6c36fe] my-2">⬇️</div>
+                    <div class="flow-step bg-white border-2 border-[#6c36fe] rounded-lg p-4 font-semibold inline-block">[User podejmuje decyzję: ✅ / ❌ / ⚙️]</div>
+                    <div class="text-2xl text-[#6c36fe] my-2">⬇️</div>
+                    <div class="flow-step bg-white border-2 border-[#6c36fe] rounded-lg p-4 font-semibold inline-block">[Cookiebot zapisuje decyzję i przekazuje ją do Google]</div>
+                    <div class="text-2xl text-[#6c36fe] my-2">⬇️</div>
+                    <div class="flow-step bg-white border-2 border-[#6c36fe] rounded-lg p-4 font-semibold inline-block">[Google tagi działają zgodnie z decyzją]</div>
+                </div>
+
+                <h3 class="text-xl font-bold mt-6">Checklista – Consent Mode i Cookiebot</h3>
+                <ul class="list-none p-0 space-y-2">
+                    <li class="flex items-center"><span class="text-2xl text-[#6c36fe] mr-3">⬜</span> Sprawdź, czy strona klienta ma wdrożonego Cookiebota.</li>
+                    <li class="flex items-center"><span class="text-2xl text-[#6c36fe] mr-3">⬜</span> Zweryfikuj integrację Cookiebota z Consent Mode (np. w DevTools).</li>
+                    <li class="flex items-center"><span class="text-2xl text-[#6c36fe] mr-3">⬜</span> Sprawdź ustawienia "Consent Settings" w Google Tag Managerze.</li>
+                    <li class="flex items-center"><span class="text-2xl text-[#6c36fe] mr-3">⬜</span> Zadbaj o odpowiedni wygląd popupu (preferowany pełnoekranowy).</li>
+                    <li class="flex items-center"><span class="text-2xl text-[#6c36fe] mr-3">⬜</span> Poinformuj klienta o konsekwencjach braku zgody.</li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- Sekcja: Narzędzia AI -->
+        <section class="mb-12 p-6 border border-gray-200 rounded-lg bg-gray-50">
+            <h2 class="text-3xl font-semibold text-[#6c36fe] mb-6 pb-2 border-b-2 border-gray-200">ChatGPT i inne narzędzia AI – dobre praktyki</h2>
+            <p class="mb-4">W agencji korzystamy m.in. z <strong>ChatGPT</strong>, <strong>Gemini</strong> oraz <strong>NotebookLM</strong>. Pamiętaj, AI to super wsparcie, ale nie jest nieomylne.</p>
+            
+            <h3 class="text-xl font-bold mb-3">Dobre praktyki:</h3>
+            <ul class="list-disc list-inside pl-4 space-y-2">
+                <li><strong>Weryfikuj treści:</strong> AI potrafi "zmyślać" (tzw. halucynacje). Zawsze sprawdzaj dane i źródła.</li>
+                <li><strong>Zadbaj o język i ton:</strong> Przepisz tekst, aby brzmiał naturalnie, a nie jak sztuczny twór AI.</li>
+                <li><strong>Popraw wielkie litery:</strong> AI nadużywa wielkich liter w języku polskim. Poprawiaj to.</li>
+                <li><strong>Unikaj przesady:</strong> Ogranicz entuzjazm i wykrzykniki, jeśli nie pasują do kontekstu.</li>
+                <li><strong>Nie kopiuj 1:1:</strong> Traktuj AI jako asystenta, nie gotowe rozwiązanie.</li>
+                <li><strong>Dawaj kontekst:</strong> Im lepsze dane wejściowe, tym lepszy wynik.</li>
+                <li><strong>Sprawdzaj zgodność z briefem:</strong> Upewnij się, że AI nie zignorowało części założeń.</li>
+            </ul>
+        </section>
+        
+        <!-- Sekcja: Płatności -->
+        <section class="mb-12 p-6 border border-gray-200 rounded-lg bg-gray-50">
+            <h2 class="text-3xl font-semibold text-[#6c36fe] mb-6 pb-2 border-b-2 border-gray-200">Podpinanie kart i zarządzanie płatnościami</h2>
+
+            <div class="mb-8">
+                <h3 class="text-2xl font-bold mb-3">Część 1: Meta Ads (Facebook & Instagram)</h3>
+                <p class="mb-4">Gdy podpinamy naszą agencyjną kartę, kluczowa jest weryfikacja danych firmowych.</p>
+                <div class="bg-[#ffeb03] border-2 border-black rounded-lg p-4">
+                    <strong class="text-[#6c36fe]">NAJWAŻNIEJSZY KROK:</strong> Po dodaniu karty przejdź do "Informacje o firmie" w ustawieniach płatności i upewnij się, że jako płatnik (Nazwa, Adres, NIP) widnieje <strong>Beeffective</strong>. Jeśli zostawisz dane klienta, faktura zostanie wystawiona na niego, a dla nas będzie bezużyteczna.
+                </div>
+                <h4 class="text-lg font-bold mt-4 mb-2">Checklista dla Meta Ads:</h4>
+                <ul class="list-none p-0 space-y-2">
+                   <li class="flex items-center"><span class="text-2xl text-[#6c36fe] mr-3">⬜</span> Dodałem/am naszą kartę do konta reklamowego.</li>
+                   <li class="flex items-center"><span class="text-2xl text-[#6c36fe] mr-3">⬜</span> Przeszedłem/am do sekcji "Informacje o firmie".</li>
+                   <li class="flex items-center"><span class="text-2xl text-[#6c36fe] mr-3">⬜</span> Zweryfikowałem/am, że Nazwa, Adres i NIP należą do Beeffective.</li>
+                   <li class="flex items-center"><span class="text-2xl text-[#6c36fe] mr-3">⬜</span> Jeśli dane były nieprawidłowe, zaktualizowałem/am je na nasze.</li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="text-2xl font-bold mb-3">Część 2: Google Ads</h3>
+                <p class="mb-4">Proces w Google Ads jest bardziej złożony.</p>
+                 <div class="bg-[#ffeb03] border-2 border-black rounded-lg p-4 mb-4">
+                    <strong class="text-[#6c36fe]">ZASADA NR 1:</strong> NIGDY nie dodawaj po prostu nowej karty do istniejącego profilu płatności klienta. Faktura i tak zostanie wystawiona na właściciela tego profilu.
+                </div>
+                <h4 class="text-lg font-bold mb-2">Prawidłowa procedura:</h4>
+                <ol class="list-decimal list-inside pl-4 space-y-2">
+                    <li><strong>Zidentyfikuj problem:</strong> Sprawdź w "Rozliczenia" -> "Ustawienia", na kogo jest zarejestrowany profil płatności.</li>
+                    <li><strong>Skontaktuj się z Supportem Google Ads:</strong> To kluczowy krok. Poproś o pomoc w zmianie profilu płatności na dane agencji Beeffective.</li>
+                    <li><strong>Cierpliwie współpracuj:</strong> Proces może potrwać 1-2 dni robocze.</li>
+                </ol>
+                 <h4 class="text-lg font-bold mt-4 mb-2">Checklista dla Google Ads:</h4>
+                <ul class="list-none p-0 space-y-2">
+                   <li class="flex items-center"><span class="text-2xl text-[#6c36fe] mr-3">⬜</span> Sprawdziłem/am, na kogo zarejestrowany jest obecny profil płatności.</li>
+                   <li class="flex items-center"><span class="text-2xl text-[#6c36fe] mr-3">⬜</span> Zainicjowałem/am proces zmiany profilu płatności na profil Beeffective.</li>
+                   <li class="flex items-center"><span class="text-2xl text-[#6c36fe] mr-3">⬜</span> Skontaktowałem/am się z supportem Google Ads.</li>
+                   <li class="flex items-center"><span class="text-2xl text-[#6c36fe] mr-3">⬜</span> Otrzymałem/am potwierdzenie, że płatnikiem jest teraz Beeffective.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Sekcja: Narzędzia -->
+        <section class="mb-12 p-6 border border-gray-200 rounded-lg bg-gray-50">
+            <h2 class="text-3xl font-semibold text-[#6c36fe] mb-6 pb-2 border-b-2 border-gray-200">Narzędzia wykorzystywane w Beeffective</h2>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr>
+                            <th class="p-3 bg-[#6c36fe] text-white font-bold border border-gray-300">Nazwa Narzędzia</th>
+                            <th class="p-3 bg-[#6c36fe] text-white font-bold border border-gray-300">Główne zastosowanie</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="bg-white">
+                            <td class="p-3 border border-gray-300"><strong>Semstorm</strong></td>
+                            <td class="p-3 border border-gray-300">Analiza konkurencji, badanie słów kluczowych, monitoring widoczności.</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="p-3 border border-gray-300"><strong>Cobiro</strong></td>
+                            <td class="p-3 border border-gray-300">Automatyzacja kampanii produktowych (Shopping Ads) i zarządzanie stawkami.</td>
+                        </tr>
+                        <tr class="bg-white">
+                            <td class="p-3 border border-gray-300"><strong>Power My Analytics</strong></td>
+                            <td class="p-3 border border-gray-300">Automatyzacja raportowania i łączenie danych w Google Looker Studio.</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="p-3 border border-gray-300"><strong>Clarity</strong></td>
+                            <td class="p-3 border border-gray-300">Analiza map cieplnych (heatmaps) i nagrań sesji użytkowników (UX/CRO).</td>
+                        </tr>
+                        <tr class="bg-white">
+                            <td class="p-3 border border-gray-300"><strong>Make</strong></td>
+                            <td class="p-3 border border-gray-300">Automatyzacja zadań i łączenie aplikacji bez natywnej integracji.</td>
+                        </tr>
+                         <tr class="bg-gray-50">
+                            <td class="p-3 border border-gray-300"><strong>Sembot</strong></td>
+                            <td class="p-3 border border-gray-300">Automatyczne zarządzanie kampaniami produktowymi i masowe generowanie struktur kampanii.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        
+        <!-- Sekcja: Podcasty -->
+        <section class="p-6 border border-gray-200 rounded-lg bg-gray-50">
+            <h2 class="text-3xl font-semibold text-[#6c36fe] mb-6 pb-2 border-b-2 border-gray-200">Polecane podcasty marketingowe</h2>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr>
+                            <th class="p-3 bg-[#6c36fe] text-white font-bold border border-gray-300">Podcast</th>
+                            <th class="p-3 bg-[#6c36fe] text-white font-bold border border-gray-300">Autor/Prowadzący</th>
+                            <th class="p-3 bg-[#6c36fe] text-white font-bold border border-gray-300">Dlaczego warto słuchać?</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="bg-white">
+                            <td class="p-3 border border-gray-300"><strong>Konkretnie o Marketingu</strong></td>
+                            <td class="p-3 border border-gray-300">Artur Jabłoński</td>
+                            <td class="p-3 border border-gray-300">Podstawa w zakresie marketingu efektywnościowego (Google Ads, Meta Ads, analityka).</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="p-3 border border-gray-300"><strong>Nowoczesna Sprzedaż i Marketing</strong></td>
+                            <td class="p-3 border border-gray-300">Szymon Negacz</td>
+                            <td class="p-3 border border-gray-300">Świetne wskazówki dotyczące marketingu B2B.</td>
+                        </tr>
+                        <tr class="bg-white">
+                            <td class="p-3 border border-gray-300"><strong>Z buta w Marketing</strong></td>
+                            <td class="p-3 border border-gray-300">Dawid Bagiński</td>
+                            <td class="p-3 border border-gray-300">Bezpośrednie i szczere rozmowy o realiach marketingu cyfrowego.</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="p-3 border border-gray-300"><strong>Nowy Marketing Podcast</strong></td>
+                            <td class="p-3 border border-gray-300">Redakcja NowyMarketing.pl</td>
+                            <td class="p-3 border border-gray-300">Przegląd najważniejszych trendów i kampanii z branży.</td>
+                        </tr>
+                        <tr class="bg-white">
+                            <td class="p-3 border border-gray-300"><strong>Mała Wielka Firma</strong></td>
+                            <td class="p-3 border border-gray-300">Marek Jankowski</td>
+                            <td class="p-3 border border-gray-300">Podcast biznesowy, który pomaga zrozumieć perspektywę klientów.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>
