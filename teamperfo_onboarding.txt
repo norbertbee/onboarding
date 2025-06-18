@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Witaj w BeeTeamie! | Onboarding #teamperfo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .highlight {
+            background-color: #ffeb03;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        /* Custom styles for sections */
+        .section-card {
+            margin-bottom: 3rem;
+            padding: 1.5rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.5rem;
+            background-color: #f8fafc;
+        }
+        .section-title {
+            font-size: 1.875rem; /* text-3xl */
+            font-weight: 600;
+            color: #6c36fe;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        .section-card h3 {
+            font-size: 1.5rem; /* text-2xl */
+            font-weight: 600;
+            color: #1f2937; /* gray-800 */
+        }
+        .section-card h4 {
+            font-size: 1.25rem; /* text-xl */
+            font-weight: 600;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        /* Checklist styles */
+        .checklist-section ul { list-style: none; padding-left: 0; }
+        .checklist-section li {
+            background-color: #ffffff;
+            margin-bottom: 8px;
+            padding: 12px;
+            border-left: 4px solid #6c36fe;
+            display: flex;
+            align-items: flex-start;
+        }
+        .checklist-section input[type="checkbox"] {
+            margin-right: 15px;
+            margin-top: 5px;
+            flex-shrink: 0;
+            transform: scale(1.4);
+        }
+        .checklist-section label { flex: 1; }
+        
+        /* Practices section styles */
+        .practices-section ul { list-style: none; padding-left: 0; }
+        .practices-section ul li {
+             padding-left: 1.5rem;
+             position: relative;
+             margin-bottom: 0.5rem;
+        }
+        .practices-section ul li::before {
+            content: '✅';
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .practices-section .sub-list li::before { content: '👉'; }
+        .practices-section .reco-list li::before { content: '💡'; }
+
+        /* Warning box style */
+        .warning {
+            background-color: #fce8e6;
+            border-left: 4px solid #d93025;
+            padding: 15px;
+            margin-top: 15px;
+            font-weight: bold;
+            color: #c5221f;
+            border-radius: 6px;
+        }
+        
+        /* Code snippet style */
+        code {
+            background-color: #e2e8f0; /* gray-200 */
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 0.9em;
+        }
+
+        /* Naming convention section styles */
+        .naming-section .table-container { overflow-x: auto; margin-top: 1rem; }
+        .naming-section table { width: 100%; border-collapse: collapse; }
+        .naming-section th, .naming-section td {
+            padding: 0.75rem;
+            border: 1px solid #e2e8f0;
+            text-align: left;
+            vertical-align: middle;
+        }
+        .naming-section th {
+            background-color: #f7fafc;
+            font-weight: 600;
+            color: #4a5568;
+        }
+        .naming-section .level-header { background-color: #6c36fe; color: white; font-weight: 700; text-align: center; }
+        .naming-section .example { margin-top: 1rem; padding: 1rem; background-color: #f1f5f9; border-radius: 6px; }
+        .naming-section .legend { margin-top: 1.5rem; padding: 1rem; background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; font-size: 0.9rem; }
+        
+        /* Glossary styles */
+        .glossary-section dt {
+            font-weight: 700;
+            font-size: 1.125rem; /* text-lg */
+            color: #1f2937;
+            margin-top: 1.5rem;
+        }
+        .glossary-section dd {
+            margin-left: 0;
+            margin-top: 0.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #e2e8f0;
+            color: #4a5568;
+        }
+        .glossary-section dd:last-of-type {
+            border-bottom: none;
+        }
+
+        /* Accordion Styles from new section */
+        .text-brand-purple { color: #6c36fe; }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+        }
+        .accordion-header.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+        .prose ol {
+            list-style: decimal;
+            padding-left: 1.5rem;
+        }
+        .prose li {
+            margin-bottom: 0.5rem;
+        }
+        .prose a {
+            color: #6c36fe;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <div class="container mx-auto max-w-4xl my-8 p-6 md:p-8 bg-white rounded-lg shadow-xl">
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-[#6c36fe]">Fajnie mieć Cię w naszym BeeTeamie!</h1>
+            <p class="mt-4 text-lg md:text-xl text-gray-600">Oto kilka informacji o #teamperfo, które musisz wiedzieć na start.</p>
+        </header>
+
+        <!-- Sekcja: Statusy Zespołu -->
+        <section class="section-card">
+            <h2 class="section-title">Cotygodniowe statusy zespołu</h2>
+            <div class="space-y-4 text-gray-700">
+                <p>W każdy poniedziałek o 12:00 spotykamy się na wewnętrznym statusie zespołu performance. To czas, kiedy omawiamy kluczowe tematy dotyczące klientów, planujemy działania na nadchodzący tydzień, dzielimy się ważnymi update’ami i ewentualnymi wątkami do eskalacji.</p>
+                <p>Notatka z każdego spotkania trafia tutaj:<br>
+                    <a href="https://docs.google.com/spreadsheets/d/1EYdCw99LroJtpLuzScVelos3YdLWRZvCWCVHR3Bu_4Q/edit?gid=302463316#gid=302463316" target="_blank" rel="noopener noreferrer" class="text-brand-purple font-semibold hover:underline">Status zespołu – dokument</a>
+                </p>
+                 <div class="p-4 bg-blue-100 border-l-4 border-blue-400 rounded-r-lg">
+                     <p class="font-bold">Pro tip:</p>
+                     <p>Przed spotkaniem warto rzucić okiem na swój zakres klientów i przygotować:</p>
+                     <ul class="list-disc list-inside mt-2 ml-4">
+                         <li>szybkie podsumowanie działań/zadań,</li>
+                         <li>tematy wymagające decyzji lub wsparcia zespołu,</li>
+                         <li>ewentualne wąskie gardła (np. czekamy na coś od klienta).</li>
+                     </ul>
+                 </div>
+            </div>
+        </section>
+
+        <!-- Sekcja: Media Plan -->
+        <section class="section-card">
+            <h2 class="section-title">Media Plan</h2>
+            <div class="space-y-4 text-gray-700">
+                <p>Na etapie ofertowania (czyli przed startem współpracy lub przy rozbudowie działań u obecnego klienta) przygotowujemy media plan – to dokument pokazujący proponowany podział budżetu reklamowego, kanały i estymację wyników.</p>
+                <p>Wzór media planu znajdziesz tutaj:<br>
+                    <a href="https://docs.google.com/spreadsheets/d/1h1Ny4MPW-4w0blxwEAiHfchjGDo097ygUaAa07cTJIY/edit?gid=1392394452#gid=1392394452" target="_blank" rel="noopener noreferrer" class="text-brand-purple font-semibold hover:underline">Media Plan – szablon</a>
+                </p>
+                <div class="p-4 bg-yellow-100 border-l-4 border-yellow-400 rounded-r-lg">
+                    <p class="font-bold">Uwaga!</p>
+                    <p>To jest wzór, a nie sztywna formatka. Media plan przygotowany dla klienta nie musi zawierać wszystkich danych z szablonu. Dostosuj zawartość do:</p>
+                    <ul class="list-disc list-inside mt-2 ml-4">
+                        <li>branży,</li>
+                        <li>budżetu,</li>
+                        <li>poziomu zaawansowania kampanii,</li>
+                        <li>etapu współpracy (oferta / rozszerzenie działań / benchmarkowanie itp.).</li>
+                    </ul>
+                </div>
+                <p>Celem media planu jest czytelne przedstawienie strategii i uzasadnienie budżetu – forma może być elastyczna, ale logika i liczby muszą się spinać.</p>
+            </div>
+        </section>
+
+        <!-- NOWA SEKCJA: Urlopy -->
+        <section class="section-card">
+            <h2 class="section-title">🏖️ Urlopy – zasady i dobre praktyki</h2>
+            <p class="mb-4 text-gray-700">Planujesz urlop? Super – odpoczynek jest ważny. Ale zanim wylogujesz się ze Slacka i odinstalujesz Gmaila, pamiętaj o kilku zasadach, które ułatwiają pracę zespołowi, kiedy Cię nie ma.</p>
+
+            <h3 class="text-xl font-bold mb-4 text-gray-800">✅ Co musisz zrobić przed urlopem?</h3>
+
+            <div class="space-y-6 text-gray-700">
+                <div>
+                    <h4 class="font-semibold text-lg text-gray-800">Wyślij mailowo notatkę urlopową</h4>
+                    <ul class="list-disc list-inside pl-4 mt-2 space-y-1">
+                        <li><strong>Temat np:</strong> Notatka urlopowa | Imię | daty nieobecności</li>
+                        <li><strong>W treści wskaż:</strong>
+                            <ul class="list-circle list-inside pl-6 mt-1">
+                                <li>kto zastępuje Cię przy każdym projekcie,</li>
+                                <li>czy są jakieś szczególne tematy do przejęcia / przypilnowania.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <p class="mt-3">
+                        📎 Listę zastępstw znajdziesz tutaj: <br>
+                        <a href="https://docs.google.com/spreadsheets/d/1EYdCw99LroJtpLuzScVelos3YdLWRZvCWCVHR3Bu_4Q/edit?gid=1188225258#gid=1188225258" target="_blank" rel="noopener noreferrer" class="text-brand-purple font-semibold hover:underline">👉 Zastępstwa urlopowe – dokument</a>
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold text-lg text-gray-800">Zaplanuj wszystko, co możesz z wyprzedzeniem</h4>
+                    <ul class="list-disc list-inside pl-4 mt-2 space-y-1">
+                        <li>Zrób porządki w kampaniach, żeby nie zostawiać bałaganu.</li>
+                        <li>Ustaw harmonogramy reklam, jeśli kampania ma działać w trakcie Twojej nieobecności.</li>
+                        <li>Przypilnuj budżetów, kreacji, rozszerzeń – lepiej dopiąć to wcześniej niż przez telefon z plaży ☀️</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold text-lg text-gray-800">Nie zostawiaj zespołowi nadmiaru pracy</h4>
+                    <ul class="list-disc list-inside pl-4 mt-2 space-y-1">
+                        <li>Ogranicz zadania, które trzeba będzie „gasić” w Twoim imieniu.</li>
+                        <li>Przekaż wszystkie informacje jasno, konkretnie, bez niedomówień.</li>
+                    </ul>
+                </div>
+
+                <div class="p-4 bg-blue-100 border-l-4 border-blue-400 rounded-r-lg">
+                    <p><strong class="text-blue-800">💡 Dobra praktyka:</strong> Dobrze przygotowany urlop = spokojniejszy powrót i mniej chaosu w zespole.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sekcja: Analityka - lista TO DO -->
+        <section class="section-card checklist-section">
+            <h2 class="section-title">Analityka - lista TO DO</h2>
+            <p class="mb-6 text-gray-600">Kompleksowa lista zadań do wykonania przy wdrażaniu analityki i narzędzi marketingowych dla nowego projektu.</p>
+
+            <h3>Google Tag Manager</h3>
+            <ul>
+                <li><input type="checkbox" id="ztm1"><label for="ztm1">Założenie konta i nadanie dostępów.</label></li>
+                <li><input type="checkbox" id="ztm2"><label for="ztm2">Utworzenie kontenera i nadanie dostępów (wymagane uprawnienie publikacji).</label></li>
+                <li><input type="checkbox" id="ztm3"><label for="ztm3">Przesłanie kodów do implementacji do klienta w pliku .txt (opcjonalnie: przesłanie identyfikatora kontenera, jeśli CMS umożliwia łatwiejszą implementację GTM-a).</label></li>
+                <li><input type="checkbox" id="ztm4"><label for="ztm4">Sprawdzenie poprawności implementacji kodu GTM z wtyczką Tag Assistant Legacy.</label></li>
+            </ul>
+
+            <h3>Implementacja Consent Mode</h3>
+            <ul>
+                <li><input type="checkbox" id="zcm1"><label for="zcm1">Implementacja Consent Mode zgodnie z <a href="https://docs.google.com/document/d/1MY2lOx-1MVksxMChaLpagvu7xwtwKAnazA7cLXQz6d4/edit" target="_blank" class="text-[#6c36fe] hover:underline">oficjalną instrukcją</a>.</label></li>
+            </ul>
+            
+            <h3>Implementacja Google Analytics 4</h3>
+            <ul>
+                <li><input type="checkbox" id="zga1"><label for="zga1">Założenie konta Google Analytics dla strony, z uwzględnieniem poprawnego adresu URL (https).</label></li>
+                <li><input type="checkbox" id="zga2"><label for="zga2">Udostępnienie zasobów do implementacji na stronie: Poprzez GTM - identyfikator pomiaru (dostępny w strumieniach danych w Ustawieniach) lub poprzez umieszczenie kodu dostępnego w strumieniach danych.</label></li>
+                <li><input type="checkbox" id="zga3"><label for="zga3">Sprawdzenie poprawności implementacji kodu Google Analytics na stronie poprzez Tag Assistant Legacy.</label></li>
+                <li><input type="checkbox" id="zga4"><label for="zga4">Nadanie dostępów dla innych użytkowników.</label></li>
+                <li><input type="checkbox" id="zga5"><label for="zga5">Wdrożenie Google Signals.</label></li>
+                <li><input type="checkbox" id="zga6"><label for="zga6">Aktywacja ustawień zgód marketingowych.</label></li>
+                <li><input type="checkbox" id="zga7"><label for="zga7">Zmiana czasu przechowywania danych z 2 na 14 miesięcy.</label></li>
+                <li><input type="checkbox" id="zga8"><label for="zga8">Wykluczenie wewnętrznego IP.</label></li>
+                <li><input type="checkbox" id="zga9"><label for="zga9">Przesłanie listy niechcianych witryn odsyłających.</label></li>
+                <li><input type="checkbox" id="zga10"><label for="zga10">W przypadku e-commerce wdrożenie warstwy danych - po stronie klienta. Jeśli jest strona na Wordpressie, wówczas możemy to zrobić sami korzystając z wtyczki GTM4WP Thomasa Geigera.</label></li>
+                <li><input type="checkbox" id="zga11"><label for="zga11">Utworzenie niezbędnych eventów (na podstawie zdarzeń warstwy danych lub przez inne triggery dostępne w GTM-ie).</label></li>
+                <li><input type="checkbox" id="zga12"><label for="zga12">Sprawdzenie poprawności wdrożenia tagów w Tag Assistant.</label></li>
+                <li><input type="checkbox" id="zga13"><label for="zga13">Przesłanie zmian na produkcję - opublikowanie zmian w kontenerze.</label></li>
+                <li><input type="checkbox" id="zga14"><label for="zga14">Utworzenie niezbędnych raportów w sekcji Eksploracja.</label></li>
+            </ul>
+        </section>
+
+        <!-- Sekcja: Płatności -->
+        <section class="section-card">
+            <h2 class="section-title">Podpinanie kart do kont reklamowych</h2>
+
+            <div class="mb-8">
+                <h3 class="text-xl font-bold mb-3">Część 1: Meta Ads (Facebook & Instagram)</h3>
+                <p class="mb-4 text-gray-700">Gdy podpinamy naszą firmową kartę, kluczowa jest weryfikacja danych firmowych.</p>
+                <div class="bg-[#ffeb03] border-2 border-black rounded-lg p-4">
+                    <strong class="text-[#6c36fe]">NAJWAŻNIEJSZY KROK:</strong> Po dodaniu karty przejdź do "Informacje o firmie" w ustawieniach płatności i upewnij się, że jako płatnik (Nazwa, Adres, NIP) widnieje <strong>Beeffective</strong>. Jeśli zostawisz dane klienta, faktura zostanie wystawiona na niego, a dla nas będzie bezużyteczna.
+                </div>
+            </div>
+
+            <div>
+                <h3 class="text-xl font-bold mb-3">Część 2: Google Ads</h3>
+                <p class="mb-4 text-gray-700">Proces w Google Ads jest bardziej złożony.</p>
+                 <div class="bg-[#ffeb03] border-2 border-black rounded-lg p-4 mb-4">
+                     <strong class="text-[#6c36fe]">ZASADA NR 1:</strong> NIGDY nie dodawaj po prostu nowej karty do istniejącego profilu płatności klienta. Faktura i tak zostanie wystawiona na właściciela tego profilu.
+                 </div>
+            </div>
+        </section>
+
+        <!-- Sekcja: Consent Mode -->
+        <section class="section-card">
+            <h2 class="section-title">Consent Mode i Cookiebot – dobre praktyki</h2>
+            
+            <div class="space-y-4">
+                <h3 class="text-xl font-bold">Co to jest Consent Mode?</h3>
+                <p class="text-gray-700">To mechanizm od Google, który dostosowuje działanie tagów (np. Google Ads, Google Analytics) do decyzji użytkownika o cookies. Jeśli użytkownik <span class="highlight">zaakceptuje cookies</span>, tagi działają normalnie. Jeśli <span class="highlight">odmówi zgody</span>, tagi działają w trybie ograniczonym, wysyłając anonimowe pingi.</p>
+
+                <h3 class="text-xl font-bold mt-4">Dlaczego trzeba to wdrożyć?</h3>
+                <ul class="list-disc list-inside pl-4 space-y-2 text-gray-700">
+                    <li><strong>Wymóg prawny:</strong> RODO wymaga uzyskania zgody.</li>
+                    <li><strong>Wymóg Google:</strong> Od marca 2024 r. brak Consent Mode v2 może powodować utratę danych.</li>
+                    <li><strong>Lepsze dane:</strong> Performance marketing bez danych to wróżenie z fusów.</li>
+                </ul>
+
+                <h3 class="text-xl font-bold mt-4">Z jakiego narzędzia korzystamy?</h3>
+                <p class="text-gray-700">W Beeffective korzystamy z <strong>Cookiebota</strong> – platformy, która pozwala łatwo połączyć się z Consent Mode, działa z popularnymi CMS-ami i umożliwia ustawienie popupu na cały ekran.</p>
+            </div>
+        </section>
+
+        <!-- Sekcja: Dobre Praktyki -->
+        <section class="section-card practices-section">
+            <h2 class="section-title">Dobre praktyki w ustawianiu reklam Meta Ads i Google Ads</h2>
+            
+            <div class="mb-12">
+                <h3>Tworzenie kampanii w Google Ads</h3>
+                
+                <h4>Wykluczenie brandu – dokładnie i skutecznie</h4>
+                <p class="mb-4 text-gray-700">Jeśli masz osobną kampanię na brand, wyklucz brand z pozostałych kampanii, aby nie zaburzać wyników innych kampanii i nie przepłacać za ruch, który i tak przyjdzie dzięki kampanii brandowej.</p>
+                <p class="font-bold text-gray-600">Co dokładnie wykluczyć:</p>
+                <ul class="sub-list">
+                    <li><code>[nazwa firmy]</code> – dopasowanie ścisłe</li>
+                    <li><code>"nazwa firmy"</code> – dopasowanie do wyrażenia</li>
+                    <li>Różne warianty i literówki</li>
+                </ul>
+                <p class="font-bold text-gray-600 mt-4">Gdzie dodać:</p>
+                <p class="text-gray-700">W kampanii: <code>Słowa kluczowe → Wykluczające słowa kluczowe</code> lub w <code>Zasobach wspólnych → Listy wykluczeń</code> na poziomie konta.</p>
+
+                <h4>Wyklucz aplikacje z GDN</h4>
+                <p class="mb-4 text-gray-700">Kampanie GDN domyślnie pokazują reklamy w aplikacjach mobilnych – to często przepalanie budżetu. Wyklucz je, dodając w <code>Zarządzaniu miejscami docelowymi</code> placement: <code>mobileappcategory::69500</code>.</p>
+
+                <h4>Zasoby reklam – zawsze kompletne</h4>
+                <p class="mb-4 text-gray-700">Zawsze wypełniaj wszystkie możliwe zasoby reklamowe, ponieważ Google wykorzystuje je do dynamicznych kombinacji, a reklamy z pełnym zestawem mają wyższy Ad Strength i zasięg. 📌 Pamiętaj też, że warto testować różne warianty – sprzedażowe, informacyjne, emocjonalne.</p>
+                <p class="font-bold text-gray-600">Co trzeba uzupełnić:</p>
+                <ul class="sub-list">
+                    <li><strong>Nagłówki:</strong> min. 5, najlepiej 8–10 (różnorodne, bez powtórzeń).</li>
+                    <li><strong>Teksty reklamy (opisowe):</strong> min. 2, najlepiej 4.</li>
+                    <li><strong>Końcowy URL:</strong> dokładna podstrona, nie zawsze strona główna.</li>
+                    <li><strong>Ścieżki wyświetlania:</strong> dodaj np. „promocje”, „sukienki-lato”.</li>
+                    <li><strong>Zasoby graficzne (dla PMax i GDN):</strong> zdjęcia, logo, filmy.</li>
+                </ul>
+            </div>
+
+            <div class="mt-12">
+                <h3>Meta Ads – dobre praktyki i wskazówki</h3>
+
+                <h4>Umiejscowienia reklam – bądź selektywny</h4>
+                <p class="mb-2 text-gray-700"><strong>Promujesz post z fanpage’a?</strong> Jeśli tak, wyłącz Instagram i zostaw tylko Facebook Feed. Treść jest zazwyczaj dopasowana do FB i może wyglądać nienaturalnie na IG.</p>
+                <p class="mb-2 text-gray-700"><strong>Zawsze dostosuj grafikę:</strong> Stories = pionowe 9:16, Feed = kwadrat lub poziom.</p>
+                <p class="mb-4 text-gray-700"><strong>Audience Network – z uwagą:</strong> W większości przypadków wyłączamy to umiejscowienie. Możesz je zostawić na początku i sprawdzić w raporcie, czy przynosi efekty. 📌 Jeśli generuje wydatki bez konwersji → wyłącz.</p>
+            </div>
+        </section>
+
+        <!-- SEKCJA: Struktura Nazewnictwa -->
+        <section class="section-card naming-section">
+            <h2 class="section-title">Struktura nazewnictwa kampanii i tagowanie linków UTM</h2>
+            <p class="mb-6 text-gray-600">Spójne nazewnictwo to fundament porządku. Umożliwia szybką analizę, filtrowanie i raportowanie. Poniżej znajduje się obowiązujący w Beeffective standard dla kampanii i linków UTM.</p>
+            
+            <div class="mb-12">
+                <h3 class="text-xl font-bold text-gray-800 mb-4">Meta Ads (Facebook) - Naming Kampanii</h3>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr class="level-header">
+                                <th colspan="5">Poziom Kampanii</th>
+                            </tr>
+                            <tr>
+                                <th>Wyróżnik Firmowy</th>
+                                <th>Etap Lejka</th>
+                                <th>Typ Ruchu</th>
+                                <th>Rodzaj Kampanii</th>
+                                <th>Promocja/Akcja</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                             <tr>
+                                <td><code>Bee</code></td>
+                                <td class="text-lg">🟢 🟡 🔴</td>
+                                <td><code>NR / ADV+ / REM</code></td>
+                                <td><code>Traffic / Reach / Video / DPA / Conversion</code></td>
+                                <td><code>np. WinterSale_Walizki129</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="mb-12">
+                <h3 class="text-xl font-bold text-gray-800 mb-4">Google Ads - Naming Kampanii</h3>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr class="level-header">
+                                <th colspan="4">Poziom Kampanii</th>
+                            </tr>
+                            <tr>
+                                <th>Etap Lejka</th>
+                                <th>Rodzaj Kampanii</th>
+                                <th>Typ Kampanii</th>
+                                <th>Ustawienie + Dodatkowe Info</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="text-lg">🟢 🟡 🔴</td>
+                                <td><code>Search / GDN / PMax / DG / PLA / YT</code></td>
+                                <td><code>Brand / Generic / Linia Produktów / Odbiorcy / REM</code></td>
+                                <td><code>CPC / CPA / tROAS / Cobiro / SemBot</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="legend">
+                <p><strong>Legenda kropek (Etap lejka):</strong></p>
+                <ul class="list-none mt-2 space-y-1">
+                    <li><span class="mr-2">🟢</span> - <strong>TOFU (Top of Funnel):</strong> Kampanie budujące świadomość, skierowane do szerokiej publiczności.</li>
+                    <li><span class="mr-2">🟡</span> - <strong>MOFU (Middle of Funnel):</strong> Kampanie angażujące użytkowników, którzy mieli już kontakt z marką.</li>
+                    <li><span class="mr-2">🔴</span> - <strong>BOFU (Bottom of Funnel):</strong> Kampanie remarketingowe i konwersyjne, skierowane do najcieplejszych odbiorców.</li>
+                </ul>
+            </div>
+            
+            <div class="mt-12">
+                <h3 class="text-xl font-bold text-gray-800 mb-4">Tagowanie Linków UTM</h3>
+                <p class="mb-4 text-gray-700">Parametry UTM (Urchin Tracking Module) to fragmenty tekstu dodawane do adresu URL, które pozwalają Google Analytics (i innym narzędziom) precyzyjnie śledzić, skąd pochodzi ruch. Dzięki nim wiemy dokładnie, która kampania, post czy reklama przyniosła użytkownika na naszą stronę. Poprawne tagowanie jest kluczowe dla mierzenia efektywności działań organicznych i płatnych poza Google Ads.</p>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr class="level-header">
+                                <th colspan="3">Struktura UTM</th>
+                            </tr>
+                            <tr>
+                                <th>Source</th>
+                                <th>Medium</th>
+                                <th>Campaign</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><th rowspan="3" class="align-top">meta</th><td>cpc</td><td>szablon</td></tr>
+                            <tr><td>organic</td><td>post_data</td></tr>
+                            <tr><td>reels</td><td>reels_data</td></tr>
+
+                            <tr><th rowspan="2" class="align-top">pinterest</th><td>cpc</td><td>target_wyroznik</td></tr>
+                            <tr><td>organic</td><td>post_data_wyroznik</td></tr>
+
+                            <tr><th rowspan="2" class="align-top">tiktok</th><td>cpc</td><td>target_wyroznik</td></tr>
+                            <tr><td>organic</td><td>post_data_wyroznik</td></tr>
+
+                            <tr><th rowspan="2" class="align-top">linkedin</th><td>cpc</td><td>target_wyroznik</td></tr>
+                            <tr><td>organic</td><td>post_data_wyroznik</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sekcja: Narzędzia AI -->
+        <section class="section-card">
+            <h2 class="section-title">Dobre praktyki korzystania z AI</h2>
+            <p class="mb-4 text-gray-700">W Beeffective korzystamy m.in. z <strong>ChatGPT</strong>, <strong>Gemini</strong> oraz <strong>NotebookLM</strong>. Pamiętaj, AI to super wsparcie, ale nie jest nieomylne.</p>
+            
+            <h3 class="text-xl font-bold mb-3">Dobre praktyki:</h3>
+            <ul class="list-disc list-inside pl-4 space-y-2 text-gray-700">
+                <li><strong>Weryfikuj treści:</strong> AI potrafi "zmyślać" (tzw. halucynacje). Zawsze sprawdzaj dane i źródła.</li>
+                <li><strong>Zadbaj o język i ton:</strong> Przepisz tekst, aby brzmiał naturalnie, a nie jak sztuczny twór AI.</li>
+                <li><strong>Popraw wielkie litery:</strong> AI nadużywa wielkich liter w języku polskim. Poprawiaj to.</li>
+                <li><strong>Unikaj przesady:</strong> Ogranicz entuzjazm i wykrzykniki, jeśli nie pasują do kontekstu.</li>
+                <li><strong>Nie kopiuj 1:1:</strong> Traktuj AI jako asystenta, nie gotowe rozwiązanie.</li>
+                <li><strong>Dawaj kontekst:</strong> Im lepsze dane wejściowe, tym lepszy wynik.</li>
+                <li><strong>Sprawdzaj zgodność z briefem:</strong> Upewnij się, że AI nie zignorowało części założeń.</li>
+            </ul>
+        </section>
+
+        <!-- Sekcja: Narzędzia -->
+        <section class="section-card">
+            <h2 class="section-title">Inne narzędzia wykorzystywane w Beeffective</h2>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr>
+                            <th class="p-3 bg-[#6c36fe] text-white font-bold border border-gray-300">Nazwa Narzędzia</th>
+                            <th class="p-3 bg-[#6c36fe] text-white font-bold border border-gray-300">Główne zastosowanie</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="bg-white">
+                            <td class="p-3 border border-gray-300"><strong>Semstorm</strong></td>
+                            <td class="p-3 border border-gray-300">Analiza konkurencji, badanie słów kluczowych, monitoring widoczności.</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="p-3 border border-gray-300"><strong>Cobiro</strong></td>
+                            <td class="p-3 border border-gray-300">Automatyzacja kampanii produktowych (Shopping Ads) i zarządzanie stawkami.</td>
+                        </tr>
+                        <tr class="bg-white">
+                            <td class="p-3 border border-gray-300"><strong>Power My Analytics</strong></td>
+                            <td class="p-3 border border-gray-300">Automatyzacja raportowania i łączenie danych w Google Looker Studio.</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="p-3 border border-gray-300"><strong>Clarity</strong></td>
+                            <td class="p-3 border border-gray-300">Analiza map cieplnych (heatmaps) i nagrań sesji użytkowników (UX/CRO).</td>
+                        </tr>
+                        <tr class="bg-white">
+                            <td class="p-3 border border-gray-300"><strong>Make</strong></td>
+                            <td class="p-3 border border-gray-300">Automatyzacja zadań i łączenie aplikacji bez natywnej integracji.</td>
+                        </tr>
+                         <tr class="bg-gray-50">
+                            <td class="p-3 border border-gray-300"><strong>Sembot</strong></td>
+                            <td class="p-3 border border-gray-300">Automatyczne zarządzanie kampaniami produktowymi i masowe generowanie struktur kampanii.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        
+        <!-- Sekcja: Podcasty -->
+        <section class="section-card">
+            <h2 class="section-title">Polecane podcasty marketingowe</h2>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr>
+                            <th class="p-3 bg-[#6c36fe] text-white font-bold border border-gray-300">Podcast</th>
+                            <th class="p-3 bg-[#6c36fe] text-white font-bold border border-gray-300">Autor/Prowadzący</th>
+                            <th class="p-3 bg-[#6c36fe] text-white font-bold border border-gray-300">Dlaczego warto słuchać?</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="bg-white">
+                            <td class="p-3 border border-gray-300"><strong>Konkretnie o Marketingu</strong></td>
+                            <td class="p-3 border border-gray-300">Artur Jabłoński</td>
+                            <td class="p-3 border border-gray-300">Podstawa w zakresie marketingu efektywnościowego (Google Ads, Meta Ads, analityka).</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="p-3 border border-gray-300"><strong>Nowoczesna Sprzedaż i Marketing</strong></td>
+                            <td class="p-3 border border-gray-300">Szymon Negacz</td>
+                            <td class="p-3 border border-gray-300">Świetne wskazówki dotyczące marketingu B2B.</td>
+                        </tr>
+                        <tr class="bg-white">
+                            <td class="p-3 border border-gray-300"><strong>Z buta w Marketing</strong></td>
+                            <td class="p-3 border border-gray-300">Oskar Lipiński</td>
+                            <td class="p-3 border border-gray-300">Bezpośrednie i szczere rozmowy o realiach marketingu cyfrowego.</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="p-3 border border-gray-300"><strong>Nowy Marketing Podcast</strong></td>
+                            <td class="p-3 border border-gray-300">Redakcja NowyMarketing.pl</td>
+                            <td class="p-3 border border-gray-300">Przegląd najważniejszych trendów i kampanii z branży.</td>
+                        </tr>
+                        <tr class="bg-white">
+                            <td class="p-3 border border-gray-300"><strong>Mała Wielka Firma</strong></td>
+                            <td class="p-3 border border-gray-300">Marek Jankowski</td>
+                            <td class="p-3 border border-gray-300">Podcast biznesowy, który pomaga zrozumieć perspektywę klientów.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- SEKCJA SŁOWNICZKA -->
+        <section class="section-card glossary-section">
+            <h2 class="section-title">Słowniczek marketingowych pojęć MUST HAVE</h2>
+            <dl>
+                <dt>ROAS (Return On Ad Spend)</dt>
+                <dd>Zwrot z wydatków na reklamę. Wskaźnik, który mierzy przychód wygenerowany w stosunku do kwoty wydanej na reklamę. Oblicza się go, dzieląc przychód z reklam przez koszt tych reklam. Np. ROAS 500% oznacza, że każda wydana złotówka przyniosła 5 zł przychodu.</dd>
+                
+                <dt>ROI (Return On Investment)</dt>
+                <dd>Zwrot z inwestycji. Szerszy wskaźnik niż ROAS, ponieważ uwzględnia całkowity zysk w stosunku do całkowitych kosztów (nie tylko reklamowych, ale też np. kosztów produktu, obsługi). Pokazuje ogólną rentowność inwestycji.</dd>
+                
+                <dt>CTR (Click-Through Rate)</dt>
+                <dd>Współczynnik klikalności. Procent osób, które kliknęły reklamę po jej zobaczeniu. Oblicza się go, dzieląc liczbę kliknięć przez liczbę wyświetleń. Wysoki CTR świadczy o tym, że reklama jest trafna i interesująca dla odbiorców.</dd>
+                
+                <dt>CPC (Cost Per Click)</dt>
+                <dd>Koszt za kliknięcie. Kwota, jaką płacisz za pojedyncze kliknięcie Twojej reklamy. Jest to popularny model rozliczeniowy w kampaniach PPC (Pay-Per-Click).</dd>
+                
+                <dt>CPM (Cost Per Mille)</dt>
+                <dd>Koszt za tysiąc wyświetleń (Mille z łac. oznacza tysiąc). Kwota, jaką płacisz za 1000 wyświetleń Twojej reklamy. Model ten jest często stosowany w kampaniach budujących świadomość marki.</dd>
+                
+                <dt>CPA / CPL (Cost Per Acquisition / Cost Per Lead)</dt>
+                <dd>Koszt za pozyskanie / Koszt za leada. Kwota, jaką średnio płacisz za wykonanie przez użytkownika określonej akcji (konwersji), np. dokonanie zakupu (CPA) lub pozostawienie danych kontaktowych (CPL).</dd>
+
+                <dt>CR (Conversion Rate)</dt>
+                <dd>Współczynnik konwersji. Procent użytkowników, którzy wykonali pożądaną akcję (konwersję) w stosunku do wszystkich odwiedzających. Oblicza się go, dzieląc liczbę konwersji przez liczbę wizyt (lub unikalnych użytkowników) i mnożąc wynik przez 100%. Jest to kluczowy wskaźnik efektywności strony internetowej i kampanii.</dd>
+
+                <dt>Konwersja</dt>
+                <dd>Pożądane działanie wykonane przez użytkownika na stronie internetowej. Może to być zakup (makrokonwersja) lub mniejsze działanie, jak zapis do newslettera, pobranie e-booka czy dodanie produktu do koszyka (mikrokonwersja).</dd>
+
+                <dt>Lejek Sprzedażowy (TOFU, MOFU, BOFU)</dt>
+                <dd>Model przedstawiający podróż klienta od pierwszego kontaktu z marką do zakupu. TOFU (Top of the Funnel) - góra lejka, budowanie świadomości. MOFU (Middle of the Funnel) - środek lejka, budowanie zaangażowania i rozważanie oferty. BOFU (Bottom of the Funnel) - dół lejka, finalizacja zakupu i działania remarketingowe.</dd>
+                
+                <dt>KPI (Key Performance Indicator)</dt>
+                <dd>Kluczowy wskaźnik efektywności. Mierzalna wartość, która pokazuje, jak skutecznie realizujesz swoje cele biznesowe. Dla kampanii performance KPI to np. ROAS, CPA czy liczba konwersji.</dd>
+                
+                <dt>Lookalike (grupy podobnych odbiorców)</dt>
+                <dd>Funkcja w platformach reklamowych (np. Meta Ads), która pozwala na tworzenie grup odbiorców podobnych do istniejącej już grupy źródłowej (np. Twoich najlepszych klientów). Algorytm analizuje cechy grupy źródłowej (demografię, zainteresowania, zachowania) i znajduje nowych użytkowników o zbliżonym profilu, którzy z dużym prawdopodobieństwem również będą zainteresowani ofertą.</dd>
+                
+                <dt>Remarketing / Retargeting</dt>
+                <dd>Strategia marketingowa polegająca na docieraniu z reklamami do osób, które już wcześniej miały kontakt z Twoją witryną, aplikacją lub fanpage'em. Celem jest przypomnienie o ofercie i zachęcenie do powrotu oraz dokonania konwersji.</dd>
+            </dl>
+        </section>
+
+        <!-- SEKCJA: INSTRUKCJA NADAWANIA DOSTĘPÓW -->
+        <section class="section-card">
+             <h2 class="section-title">Instrukcja nadawania dostępów (info do Klientów)</h2>
+             <div class="space-y-4">
+
+                <!-- 1. Google Analytics -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="accordion-header flex justify-between items-center p-5 cursor-pointer" onclick="toggleAccordion(this)">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-[#6c36fe] rounded-md flex items-center justify-center">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                            </div>
+                            <h3 class="text-lg font-semibold text-gray-800">Google Analytics</h3>
+                        </div>
+                        <svg class="accordion-icon w-6 h-6 text-gray-500 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="p-6 border-t border-gray-200 prose max-w-none">
+                            <p class="font-semibold">Cel: Nadanie dostępu do analizy ruchu i zachowań użytkowników na stronie.</p>
+                            <ol>
+                                <li>Zaloguj się na swoje konto Google Analytics na stronie: <a href="https://analytics.google.com/" target="_blank" rel="noopener noreferrer">https://analytics.google.com/</a>.</li>
+                                <li>Przejdź do sekcji "Administracja" (ikona koła zębatego w lewym dolnym rogu).</li>
+                                <li>W kolumnie "Konto" lub "Usługa" (w zależności od potrzeb) wybierz opcję "Zarządzanie dostępem do konta/usługi".</li>
+                                <li>Kliknij niebieski przycisk "+" w prawym górnym rogu, a następnie wybierz "Dodaj użytkowników".</li>
+                                <li>
+                                    <p>W polu "Adresy e-mail" wpisz poniższe adresy:</p>
+                                    <div class="space-y-3 my-3 not-prose">
+                                        <div class="flex items-center justify-between p-3 bg-gray-50 rounded-md">
+                                            <span class="text-gray-700">norbert.korus@beeffective.pl</span>
+                                            <button onclick="copyToClipboard('norbert.korus@beeffective.pl', this)" class="text-sm font-medium text-brand-purple hover:underline">Kopiuj</button>
+                                        </div>
+                                        <div class="flex items-center justify-between p-3 bg-gray-50 rounded-md">
+                                            <span class="text-gray-700">XXXXXXX@beeffective.pl</span>
+                                            <button onclick="copyToClipboard('XXXXXXX@beeffective.pl', this)" class="text-sm font-medium text-brand-purple hover:underline">Kopiuj</button>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>Przypisz rolę "Administrator", abyśmy mogli w pełni zarządzać konfiguracją. Zaznacz opcję "Powiadom nowych użytkowników e-mailem" i kliknij "Dodaj".</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Google Ads -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="accordion-header flex justify-between items-center p-5 cursor-pointer" onclick="toggleAccordion(this)">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-[#6c36fe] rounded-md flex items-center justify-center">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                            </div>
+                            <h3 class="text-lg font-semibold text-gray-800">Google Ads</h3>
+                        </div>
+                        <svg class="accordion-icon w-6 h-6 text-gray-500 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="p-6 border-t border-gray-200 prose max-w-none">
+                            <p class="font-semibold">Cel: Umożliwienie zarządzania kampaniami reklamowymi w wyszukiwarce Google.</p>
+                            <p>Proces nadania dostępu do Google Ads inicjowany jest przez naszą firmę.</p>
+                             <ol>
+                                <li>Zaloguj się na swoje konto Google Ads na stronie: <a href="https://ads.google.com/" target="_blank" rel="noopener noreferrer">https://ads.google.com/</a>.</li>
+                                <li>Znajdź i przekaż nam swój <strong>10-cyfrowy numer klienta (ID konta)</strong>. Znajduje się on w prawym górnym rogu panelu, nad adresem e-mail (w formacie XXX-XXX-XXXX).</li>
+                                <li>Po otrzymaniu numeru, wyślemy prośbę o połączenie kont.</li>
+                                <li>Aby zaakceptować prośbę, zaloguj się ponownie do Google Ads, przejdź do sekcji "Narzędzia i ustawienia" (ikona klucza), a następnie w kolumnie "Konfiguracja" wybierz "Dostęp i bezpieczeństwo".</li>
+                                <li>Przejdź do zakładki "Menedżerowie" i zaakceptuj nasze zaproszenie.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Google Tag Manager -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="accordion-header flex justify-between items-center p-5 cursor-pointer" onclick="toggleAccordion(this)">
+                        <div class="flex items-center space-x-4">
+                             <div class="w-12 h-12 bg-[#6c36fe] rounded-md flex items-center justify-center">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                            </div>
+                            <h3 class="text-lg font-semibold text-gray-800">Google Tag Manager</h3>
+                        </div>
+                        <svg class="accordion-icon w-6 h-6 text-gray-500 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="p-6 border-t border-gray-200 prose max-w-none">
+                            <p class="font-semibold">Cel: Umożliwienie zarządzania tagami i skryptami śledzącymi na stronie bez ingerencji w kod źródłowy.</p>
+                            <ol>
+                                <li>Zaloguj się na swoje konto Google Tag Manager: <a href="https://tagmanager.google.com/" target="_blank" rel="noopener noreferrer">https://tagmanager.google.com/</a>.</li>
+                                <li>Przejdź do zakładki "Administracja".</li>
+                                <li>W kolumnie "Konto" lub "Kontener" (w zależności od potrzeb) wybierz opcję "Zarządzanie użytkownikami".</li>
+                                <li>Kliknij niebieski przycisk "+" w prawym górnym rogu i wybierz "Dodaj użytkowników".</li>
+                                <li>
+                                    <p>Wpisz poniższe adresy e-mail:</p>
+                                     <div class="space-y-3 my-3 not-prose">
+                                        <div class="flex items-center justify-between p-3 bg-gray-50 rounded-md">
+                                            <span class="text-gray-700">anita.piasecka@beeffective.pl</span>
+                                            <button onclick="copyToClipboard('anita.piasecka@beeffective.pl', this)" class="text-sm font-medium text-brand-purple hover:underline">Kopiuj</button>
+                                        </div>
+                                        <div class="flex items-center justify-between p-3 bg-gray-50 rounded-md">
+                                            <span class="text-gray-700">pawel.ciosk@beeffective.pl</span>
+                                            <button onclick="copyToClipboard('pawel.ciosk@beeffective.pl', this)" class="text-sm font-medium text-brand-purple hover:underline">Kopiuj</button>
+                                        </div>
+                                        <div class="flex items-center justify-between p-3 bg-gray-50 rounded-md">
+                                            <span class="text-gray-700">XXXXX@beeffective.pl</span>
+                                            <button onclick="copyToClipboard('XXXXX@beeffective.pl', this)" class="text-sm font-medium text-brand-purple hover:underline">Kopiuj</button>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>W sekcji "Uprawnienia dotyczące kontenera" nadaj uprawnienia "Publikowanie". Następnie kliknij "Zaproś".</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Facebook Ads (Meta Business Suite) -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="accordion-header flex justify-between items-center p-5 cursor-pointer" onclick="toggleAccordion(this)">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-[#6c36fe] rounded-md flex items-center justify-center">
+                               <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12Z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <h3 class="text-lg font-semibold text-gray-800">Facebook Ads (Meta)</h3>
+                        </div>
+                        <svg class="accordion-icon w-6 h-6 text-gray-500 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="p-6 border-t border-gray-200 prose max-w-none">
+                            <p class="font-semibold">Cel: Nadanie dostępu do zarządzania stroną na Facebooku, kontem na Instagramie, pikselem oraz kontem reklamowym.</p>
+                            <p>Dostęp nadawany jest poprzez Menedżera Firmy (Meta Business Suite).</p>
+                            
+                            <div class="mt-4">
+                                <h4 class="font-semibold text-md text-brand-purple mb-2">Część A: Nadanie dostępu partnerskiego</h4>
+                                <ol>
+                                    <li>Zaloguj się do Menedżera Firmy pod adresem: <a href="https://business.facebook.com/settings/" target="_blank" rel="noopener noreferrer">https://business.facebook.com/settings/</a> i upewnij się, że pracujesz na właściwym koncie firmowym.</li>
+                                    <li>W menu po lewej stronie wybierz sekcję "Partnerzy" (w kategorii "Użytkownicy").</li>
+                                    <li>Kliknij przycisk "Dodaj", a następnie wybierz opcję "Przyznaj partnerowi dostęp do swoich zasobów".</li>
+                                    <li>
+                                        <p>W oknie, które się pojawi, wklej nasz identyfikator partnera i kliknij "Dalej":</p>
+                                         <div class="flex items-center justify-between p-3 bg-gray-50 rounded-md my-3 not-prose">
+                                            <span class="text-gray-700 font-mono tracking-wider">370122226528709</span>
+                                            <button onclick="copyToClipboard('370122226528709', this)" class="text-sm font-medium text-brand-purple hover:underline">Kopiuj</button>
+                                        </div>
+                                    </li>
+                                    <li>W kolejnym kroku przypisz nam zasoby. Wybierz z lewej kolumny każdy zasób (Strona, Konto reklamowe, Piksel, Konto na Instagramie), a następnie w prawej kolumnie włącz opcję "Pełna kontrola" (lub najwyższe dostępne uprawnienia). Po przypisaniu wszystkich zasobów kliknij "Zapisz zmiany".</li>
+                                </ol>
+                            </div>
+                            
+                            <div class="mt-6 border-t pt-6 border-gray-200">
+                                <h4 class="font-semibold text-md text-brand-purple mb-2">Część B: Nadanie dostępu administracyjnego dla wskazanych osób</h4>
+                                 <ol>
+                                    <li>Będąc wciąż w ustawieniach firmowych, przejdź do sekcji "Osoby".</li>
+                                    <li>Kliknij przycisk "Dodaj".</li>
+                                    <li>
+                                        <p>Wpisz poniższe adresy e-mail:</p>
+                                        <div class="space-y-3 my-3 not-prose">
+                                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-md">
+                                                <span class="text-gray-700">norbert.korus@beeffective.pl</span>
+                                                <button onclick="copyToClipboard('norbert.korus@beeffective.pl', this)" class="text-sm font-medium text-brand-purple hover:underline">Kopiuj</button>
+                                            </div>
+                                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-md">
+                                                <span class="text-gray-700">robert.skrobek@beeffective.pl</span>
+                                                <button onclick="copyToClipboard('robert.skrobek@beeffective.pl', this)" class="text-sm font-medium text-brand-purple hover:underline">Kopiuj</button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>Przyznaj im "Dostęp administratora", klikając odpowiednią opcję, a następnie kliknij "Dalej".</li>
+                                    <li>W kolejnym oknie przypisz te osoby do tych samych zasobów, które zostały udostępnione partnerowi (Strona, Konto reklamowe, Piksel, Instagram), również z uprawnieniami "Pełna kontrola". Zapisz zmiany.</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div> <!-- end accordion container -->
+        </section>
+
+    </div>
+
+    <script>
+        // Simple accordion logic
+        function toggleAccordion(header) {
+            const content = header.nextElementSibling;
+            header.classList.toggle('active');
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+            }
+        }
+
+        // Copy to clipboard function
+        function copyToClipboard(text, button) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            try {
+                document.execCommand('copy');
+                const originalText = button.innerHTML;
+                button.innerHTML = 'Skopiowano!';
+                button.classList.add('text-green-600');
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.classList.remove('text-green-600');
+                }, 2000);
+            } catch (err) {
+                console.error('Błąd kopiowania do schowka:', err);
+            }
+            document.body.removeChild(textarea);
+        }
+    </script>
+</body>
+</html>
